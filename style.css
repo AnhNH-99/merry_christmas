@@ -1,0 +1,215 @@
+@font-face {
+    font-family: 'mountains_of_christmasregular';
+    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/mountainsofchristmas-webfont.woff2') format('woff2'),
+        url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/35984/mountainsofchristmas-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+    background-color: #1d1d2e;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+svg {
+    width: 90%;
+    height: 90%;
+    visibility: hidden;
+
+}
+
+#endMessage {
+    font-family: mountains_of_christmasregular;
+    font-size: 2rem;
+    text-anchor: middle;
+    text-align: center;
+    fill: #FFFFFF;
+    color: #FFFFFF;
+    opacity: 0;
+    letter-spacing: 1px;
+}
+
+a {
+    color: white;
+    text-decoration: underline dotted #FFFFFF;
+}
+
+
+#showButton {
+    background-color: #ffffff00;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px #ffffff;
+    transition: all 0.3s ease;
+    position: fixed;
+    bottom: 80px;
+    right: 80px;
+}
+
+#showButton img {
+    width: 100%;
+    height: 40px;
+}
+
+#showButton:hover {
+    background-color: #a04545;
+}
+
+#showButton:active {
+    box-shadow: 0 2px #666;
+    transform: translateY(4px);
+}
+
+
+@media (max-width: 600px) {
+    #showButton {
+        bottom: 80px;
+    }
+}
+
+#card_id {
+    /* display: none; */
+}
+
+.card {
+    color: #013243;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 400px;
+    letter-spacing: 1px;
+    background: white;
+    transform-style: preserve-3d;
+    font-family: 'Times New Roman', Times, serif;
+    transform: translate(-50%, -50%) perspective(2000px);
+    box-shadow: inset 300px 0 50px rgba(0, 0, 0, .5), 20px 0 60px rgba(0, 0, 0, .5);
+    transition: 1s;
+}
+
+.card:hover {
+    /* transform: translate(-50%, -50%) perspective(2000px) rotate(15deg) scale(1.2); */
+    box-shadow: inset 20px 0 50px rgba(0, 0, 0, .5), 0 10px 100px rgba(0, 0, 0, .5);
+    background: url("./img/chu1.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    border: 5px solid white;
+}
+
+/* .card:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: white;
+    transform-origin: bottom;
+    transform: skewX(-45deg);
+} */
+
+/* .card:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -5px;
+    width: 5px;
+    height: 100%;
+    background: white;
+    transform-origin: left;
+    transform: skewY(-45deg);
+} */
+
+.card .imgBox {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-origin: left;
+    transition: .7s;
+    border: 5px solid white;
+}
+
+.card .bark {
+    position: absolute;
+    background: url("./img/hoa.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: .7s;
+
+}
+
+.card .imgBox img {
+    min-width: 250px;
+    max-height: 400px;
+}
+
+.card:hover .imgBox {
+    transform: rotateY(-135deg);
+    margin-top: -5px;
+    margin-left: -5px;
+}
+
+.card:hover .bark {
+    opacity: 1;
+    transition: .6s;
+    /* box-shadow: 300px 200px 100px rgba(0, 0, 0, .4) inset; */
+}
+
+.card .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 0 0 0 10px;
+    z-index: -1;
+    margin-top: 70px;
+}
+
+.card .details p {
+    font-size: 18px;
+    /* transform: rotate(-10deg); */
+    padding: 0 0 0 20px;
+}
+
+/* .card .details h3 {
+    transform: rotate(-10deg);
+    text-align: center;
+} */
+
+/* (A) SET CSS TRANSITION */
+#card_id {
+    transition: all 1s;
+}
+
+/* (B) HIDE */
+#card_id.hide {
+    transform: translateX(-100%) rotateZ(180deg);
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    padding: 0;
+    margin: 0;
+}
