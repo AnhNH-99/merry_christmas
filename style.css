@@ -213,3 +213,18 @@ a {
     padding: 0;
     margin: 0;
 }
+
+/* (A) SET CSS TRANSITION */
+#collapse {
+    transition: all 3s;
+}
+
+/* (B) HIDE */
+#collapse.hide {
+    transform: scaleY(0);
+    visibility: hidden;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    /* optional */
+}
